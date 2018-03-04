@@ -1,15 +1,18 @@
 PODS:
   - Alamofire (4.6.0)
   - CryptoSwift (0.8.2)
+  - Kingfisher (4.6.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.6)
   - CryptoSwift
+  - Kingfisher
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   CryptoSwift: 6b90cb3227de5ad1b034a0156f5c027399aea60c
+  Kingfisher: 55b9c395bf8d3949676ad3861111923990ab68cf
 
-PODFILE CHECKSUM: 95f15873c39efe718d7121b9f43094e766dfb4ac
+PODFILE CHECKSUM: f1a8ea61a2385ab5e8088ed2f7cc1be1512cbdd1
 
 COCOAPODS: 1.4.0
