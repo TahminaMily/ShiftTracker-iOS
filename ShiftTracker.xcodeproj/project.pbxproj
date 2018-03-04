@@ -15,6 +15,8 @@
 		3010F622204C37B200799C78 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F620204C37B200799C78 /* Formatters.swift */; };
 		3010F626204C37BA00799C78 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F624204C37BA00799C78 /* LoginViewController.swift */; };
 		3010F627204C37BA00799C78 /* ShiftListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F625204C37BA00799C78 /* ShiftListViewController.swift */; };
+		3010F629204C3B8E00799C78 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F628204C3B8E00799C78 /* LocationManager.swift */; };
+		3010F62B204C42C200799C78 /* String+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F62A204C42C200799C78 /* String+Error.swift */; };
 		30AC0C6E204B78C00030C396 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AC0C6D204B78C00030C396 /* AppDelegate.swift */; };
 		30AC0C73204B78C00030C396 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30AC0C71204B78C00030C396 /* Main.storyboard */; };
 		30AC0C75204B78C00030C396 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30AC0C74204B78C00030C396 /* Assets.xcassets */; };
@@ -45,6 +47,8 @@
 		3010F620204C37B200799C78 /* Formatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		3010F624204C37BA00799C78 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3010F625204C37BA00799C78 /* ShiftListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftListViewController.swift; sourceTree = "<group>"; };
+		3010F628204C3B8E00799C78 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		3010F62A204C42C200799C78 /* String+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Error.swift"; sourceTree = "<group>"; };
 		30AC0C6A204B78C00030C396 /* ShiftTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShiftTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30AC0C6D204B78C00030C396 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30AC0C72204B78C00030C396 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 			children = (
 				3010F614204C379700799C78 /* AuthManager.swift */,
 				3010F615204C379700799C78 /* DataSource.swift */,
+				3010F628204C3B8E00799C78 /* LocationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 			children = (
 				3010F61F204C37B200799C78 /* URL+Extensions.swift */,
 				3010F620204C37B200799C78 /* Formatters.swift */,
+				3010F62A204C42C200799C78 /* String+Error.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -409,6 +415,8 @@
 			files = (
 				3010F617204C379700799C78 /* DataSource.swift in Sources */,
 				3010F621204C37B200799C78 /* URL+Extensions.swift in Sources */,
+				3010F629204C3B8E00799C78 /* LocationManager.swift in Sources */,
+				3010F62B204C42C200799C78 /* String+Error.swift in Sources */,
 				3010F627204C37BA00799C78 /* ShiftListViewController.swift in Sources */,
 				3010F61D204C37AB00799C78 /* APIRouter.swift in Sources */,
 				30AC0C6E204B78C00030C396 /* AppDelegate.swift in Sources */,
