@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3010F60A204BC46B00799C78 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F609204BC46B00799C78 /* AuthManager.swift */; };
-		3010F60C204C14AE00799C78 /* ShiftListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F60B204C14AE00799C78 /* ShiftListViewController.swift */; };
-		3010F60E204C1E7900799C78 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F60D204C1E7900799C78 /* DataSource.swift */; };
-		3010F610204C2F9B00799C78 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F60F204C2F9B00799C78 /* URL+Extensions.swift */; };
-		3010F612204C2FDB00799C78 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F611204C2FDB00799C78 /* Formatters.swift */; };
+		3010F616204C379700799C78 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F614204C379700799C78 /* AuthManager.swift */; };
+		3010F617204C379700799C78 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F615204C379700799C78 /* DataSource.swift */; };
+		3010F61A204C379F00799C78 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F619204C379F00799C78 /* Models.swift */; };
+		3010F61D204C37AB00799C78 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F61C204C37AB00799C78 /* APIRouter.swift */; };
+		3010F621204C37B200799C78 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F61F204C37B200799C78 /* URL+Extensions.swift */; };
+		3010F622204C37B200799C78 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F620204C37B200799C78 /* Formatters.swift */; };
+		3010F626204C37BA00799C78 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F624204C37BA00799C78 /* LoginViewController.swift */; };
+		3010F627204C37BA00799C78 /* ShiftListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F625204C37BA00799C78 /* ShiftListViewController.swift */; };
 		30AC0C6E204B78C00030C396 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AC0C6D204B78C00030C396 /* AppDelegate.swift */; };
-		30AC0C70204B78C00030C396 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AC0C6F204B78C00030C396 /* LoginViewController.swift */; };
 		30AC0C73204B78C00030C396 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30AC0C71204B78C00030C396 /* Main.storyboard */; };
 		30AC0C75204B78C00030C396 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30AC0C74204B78C00030C396 /* Assets.xcassets */; };
 		30AC0C78204B78C00030C396 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30AC0C76204B78C00030C396 /* LaunchScreen.storyboard */; };
 		30AC0C83204B78C10030C396 /* ShiftTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AC0C82204B78C10030C396 /* ShiftTrackerTests.swift */; };
-		30C66927204B7A8900D5AA8D /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C66926204B7A8900D5AA8D /* APIRouter.swift */; };
-		30C66929204B83F200D5AA8D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C66928204B83F200D5AA8D /* Models.swift */; };
 		30C6692B204B887800D5AA8D /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C6692A204B887800D5AA8D /* NetworkingTests.swift */; };
 		70AD08DD35CAF411E9F90814 /* Pods_ShiftTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B835EC9DA9FD39A0E745C90 /* Pods_ShiftTracker.framework */; };
 		F826855532A0CB9D46651B74 /* Pods_ShiftTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F3DE121F1DBF13B64E1DD9 /* Pods_ShiftTrackerTests.framework */; };
@@ -37,14 +37,16 @@
 
 /* Begin PBXFileReference section */
 		120F166F69CDE012C4446406 /* Pods-ShiftTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShiftTrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShiftTrackerTests/Pods-ShiftTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		3010F609204BC46B00799C78 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
-		3010F60B204C14AE00799C78 /* ShiftListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftListViewController.swift; sourceTree = "<group>"; };
-		3010F60D204C1E7900799C78 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
-		3010F60F204C2F9B00799C78 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
-		3010F611204C2FDB00799C78 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
+		3010F614204C379700799C78 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		3010F615204C379700799C78 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		3010F619204C379F00799C78 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		3010F61C204C37AB00799C78 /* APIRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		3010F61F204C37B200799C78 /* URL+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		3010F620204C37B200799C78 /* Formatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
+		3010F624204C37BA00799C78 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3010F625204C37BA00799C78 /* ShiftListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftListViewController.swift; sourceTree = "<group>"; };
 		30AC0C6A204B78C00030C396 /* ShiftTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShiftTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30AC0C6D204B78C00030C396 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		30AC0C6F204B78C00030C396 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		30AC0C72204B78C00030C396 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		30AC0C74204B78C00030C396 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30AC0C77204B78C00030C396 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,8 +54,6 @@
 		30AC0C7E204B78C10030C396 /* ShiftTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShiftTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30AC0C82204B78C10030C396 /* ShiftTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftTrackerTests.swift; sourceTree = "<group>"; };
 		30AC0C84204B78C10030C396 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		30C66926204B7A8900D5AA8D /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
-		30C66928204B83F200D5AA8D /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		30C6692A204B887800D5AA8D /* NetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTests.swift; sourceTree = "<group>"; };
 		54F3DE121F1DBF13B64E1DD9 /* Pods_ShiftTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShiftTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B835EC9DA9FD39A0E745C90 /* Pods_ShiftTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShiftTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +82,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3010F613204C379700799C78 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3010F614204C379700799C78 /* AuthManager.swift */,
+				3010F615204C379700799C78 /* DataSource.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		3010F618204C379F00799C78 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3010F619204C379F00799C78 /* Models.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3010F61B204C37AB00799C78 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3010F61C204C37AB00799C78 /* APIRouter.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		3010F61E204C37B200799C78 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				3010F61F204C37B200799C78 /* URL+Extensions.swift */,
+				3010F620204C37B200799C78 /* Formatters.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		3010F623204C37BA00799C78 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3010F624204C37BA00799C78 /* LoginViewController.swift */,
+				3010F625204C37BA00799C78 /* ShiftListViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		30AC0C61204B78C00030C396 = {
 			isa = PBXGroup;
 			children = (
@@ -105,19 +148,16 @@
 		30AC0C6C204B78C00030C396 /* ShiftTracker */ = {
 			isa = PBXGroup;
 			children = (
+				3010F623204C37BA00799C78 /* ViewControllers */,
+				3010F61E204C37B200799C78 /* Utility */,
+				3010F61B204C37AB00799C78 /* Networking */,
+				3010F618204C379F00799C78 /* Models */,
+				3010F613204C379700799C78 /* Managers */,
 				30AC0C6D204B78C00030C396 /* AppDelegate.swift */,
-				30AC0C6F204B78C00030C396 /* LoginViewController.swift */,
-				3010F60B204C14AE00799C78 /* ShiftListViewController.swift */,
 				30AC0C71204B78C00030C396 /* Main.storyboard */,
 				30AC0C74204B78C00030C396 /* Assets.xcassets */,
 				30AC0C76204B78C00030C396 /* LaunchScreen.storyboard */,
 				30AC0C79204B78C10030C396 /* Info.plist */,
-				30C66926204B7A8900D5AA8D /* APIRouter.swift */,
-				30C66928204B83F200D5AA8D /* Models.swift */,
-				3010F609204BC46B00799C78 /* AuthManager.swift */,
-				3010F60D204C1E7900799C78 /* DataSource.swift */,
-				3010F60F204C2F9B00799C78 /* URL+Extensions.swift */,
-				3010F611204C2FDB00799C78 /* Formatters.swift */,
 			);
 			path = ShiftTracker;
 			sourceTree = "<group>";
@@ -367,15 +407,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3010F60E204C1E7900799C78 /* DataSource.swift in Sources */,
-				3010F60A204BC46B00799C78 /* AuthManager.swift in Sources */,
-				30AC0C70204B78C00030C396 /* LoginViewController.swift in Sources */,
-				3010F612204C2FDB00799C78 /* Formatters.swift in Sources */,
-				30C66927204B7A8900D5AA8D /* APIRouter.swift in Sources */,
+				3010F617204C379700799C78 /* DataSource.swift in Sources */,
+				3010F621204C37B200799C78 /* URL+Extensions.swift in Sources */,
+				3010F627204C37BA00799C78 /* ShiftListViewController.swift in Sources */,
+				3010F61D204C37AB00799C78 /* APIRouter.swift in Sources */,
 				30AC0C6E204B78C00030C396 /* AppDelegate.swift in Sources */,
-				3010F610204C2F9B00799C78 /* URL+Extensions.swift in Sources */,
-				30C66929204B83F200D5AA8D /* Models.swift in Sources */,
-				3010F60C204C14AE00799C78 /* ShiftListViewController.swift in Sources */,
+				3010F626204C37BA00799C78 /* LoginViewController.swift in Sources */,
+				3010F616204C379700799C78 /* AuthManager.swift in Sources */,
+				3010F61A204C379F00799C78 /* Models.swift in Sources */,
+				3010F622204C37B200799C78 /* Formatters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
