@@ -69,3 +69,25 @@ extension Shift {
         }
     }
 }
+
+extension Shift.Event {
+    init?(date: String, latitude: String, longitude: String) {
+        guard
+            let date = Formatters.jsonDateFormatter.date(from: date),
+            let latitude = Double(latitude),
+            let longitude = Double(longitude)
+        else { return nil }
+        
+        self.init(time: date, latitude: latitude, longitude: longitude)
+    }
+}
+
+extension Shift {
+    public var startEvent: Event? {
+        return Event(date: start, latitude: startLatitude, longitude: startLongitude)
+    }
+    
+    public var endEvent: Event? {
+        return Event(date: end, latitude: endLatitude, longitude: endLongitude)
+    }
+}

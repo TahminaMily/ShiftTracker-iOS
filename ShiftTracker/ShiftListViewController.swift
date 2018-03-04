@@ -43,7 +43,12 @@ extension ShiftListViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenSize = UIScreen.main.bounds.size
-        let columns: CGFloat = 2
+        let columns: CGFloat
+        if traitCollection.horizontalSizeClass == .regular {
+            columns = 3.0
+        } else {
+            columns = 2.0
+        }
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         let width: CGFloat = (screenSize.width - layout.sectionInset.left - layout.sectionInset.right - layout.minimumInteritemSpacing * columns)/columns
         let height: CGFloat = width + 50
@@ -57,29 +62,21 @@ class ShiftCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var startTimeLabel: UILabel!
     @IBOutlet var durationLabel: UILabel!
-    var imageTask: URLSessionTask? = nil
     
     func configure(shift: Shift) {
-        imageTask = URLSession.shared.downloadTask(with: shift.image) { [weak self] (url, response, error) in
-            guard
-                let url = url,
-                let data = try? Data(contentsOf: url),
-                let image = UIImage(data: data)
-            else {
-                return
-            }
-            DispatchQueue.main.async {
-                guard let this = self else { return }
-                this.imageView.image = image
-            }
+        let url = shift.image.addOrUpdateQueryStringParameter(key: "key", value: UUID().uuidString)
+        imageView.kf.setImage(with: url)
+        
+        startTimeLabel.text = Formatters.displayDateFormatter.string(for: shift.startEvent?.time)
+        if let startTime = shift.startEvent?.time, let endTime = shift.endEvent?.time {
+            durationLabel.text = Formatters.dateComponentFormatter.string(from: startTime, to: endTime)
+        } else {
+            durationLabel.text = "ongoing..."
         }
-        imageTask?.resume()
-        //imageView.kf.setImage(with: resource)
-        startTimeLabel.text = shift.start
-        durationLabel.text = shift.end
+        
     }
     
     override func prepareForReuse() {
-        imageTask?.cancel()
+        imageView.kf.cancelDownloadTask()
     }
 }

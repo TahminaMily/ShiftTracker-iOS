@@ -22,18 +22,14 @@ enum APIRouter: URLRequestConvertible {
     public static var sessionManager = SessionManager()
     
     static let decoder: JSONDecoder = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssXXXXX"
         let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .formatted(dateFormatter)
+        decoder.dateDecodingStrategy = .formatted(Formatters.jsonDateFormatter)
         return decoder
     }()
     
     static let encoder: JSONEncoder = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssXXXXX"
         let encoder = JSONEncoder()
-        encoder.dateEncodingStrategy = .formatted(dateFormatter)
+        encoder.dateEncodingStrategy = .formatted(Formatters.jsonDateFormatter)
         return encoder
     }()
     
