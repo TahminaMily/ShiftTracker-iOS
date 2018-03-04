@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E48B823098F2E2F5867D17F33ACBFE85"
+               BlueprintIdentifier = "5E178C1703CAA2830454E4766C65D72C"
                BuildableName = "Pods_ShiftTracker.framework"
                BlueprintName = "Pods-ShiftTracker"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E48B823098F2E2F5867D17F33ACBFE85"
+            BlueprintIdentifier = "5E178C1703CAA2830454E4766C65D72C"
             BuildableName = "Pods_ShiftTracker.framework"
             BlueprintName = "Pods-ShiftTracker"
             ReferencedContainer = "container:Pods.xcodeproj">

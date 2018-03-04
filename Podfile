@@ -7,6 +7,7 @@ target 'ShiftTracker' do
 
   # Pods for ShiftTracker
   pod 'Alamofire', '~> 4.6'
+  pod 'CryptoSwift'
 
   target 'ShiftTrackerTests' do
     inherit! :search_paths
