@@ -8,8 +8,8 @@
 
 import Foundation
 
-class LoginManager {
-    static let shared = LoginManager()
+class AuthManager {
+    static let shared = AuthManager()
     
     private enum Constants {
         static let usernameKey = "username"

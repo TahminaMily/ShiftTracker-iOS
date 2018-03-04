@@ -29,8 +29,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func didTapLogin(_ sender: UIButton, forEvent event: UIEvent) {
         guard let username = usernameTextField.text, !username.isEmpty else { return }
-        
-        guard LoginManager.shared.login(username: username) else { return }
+        guard AuthManager.shared.login(username: username) else { return }
         
         APIRouter.sessionManager.adapter = DeputyAuthAdapter(username: username)
         
@@ -38,8 +37,5 @@ class LoginViewController: UIViewController {
             self.present(tabBarController, animated: true)
         }
     }
-    
-
-
 }
 

@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         let rootViewController: UIViewController
-        if let username = LoginManager.shared.loggedInUsername {
+        if let username = AuthManager.shared.loggedInUsername {
             APIRouter.sessionManager.adapter = DeputyAuthAdapter(username: username)
             rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController")
         } else {
