@@ -41,5 +41,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSLocationUsageDescription</key>
+    <string>Location needed to start shift</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Location needed to start shift</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Location needed to start shift</string>
 </dict>
 </plist>

@@ -168,8 +168,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qw0-3B-iVm"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9yn-Wc-k11"/>
+                    <navigationItem key="navigationItem" id="9yn-Wc-k11">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Start" id="M5c-6a-E3a">
+                            <connections>
+                                <action selector="dtdTapBarButtonItem:" destination="E3M-YM-DZW" id="nvn-xc-Hhc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="barButtonItem" destination="M5c-6a-E3a" id="eVZ-Pk-o5R"/>
                         <outlet property="collectionView" destination="O30-3d-gJ7" id="ajJ-0n-rQe"/>
                     </connections>
                 </viewController>

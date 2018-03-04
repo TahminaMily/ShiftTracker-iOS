@@ -90,4 +90,8 @@ extension Shift {
     public var endEvent: Event? {
         return Event(date: end, latitude: endLatitude, longitude: endLongitude)
     }
+    
+    public var isRunning: Bool {
+        return startEvent != nil && endEvent == nil
+    }
 }

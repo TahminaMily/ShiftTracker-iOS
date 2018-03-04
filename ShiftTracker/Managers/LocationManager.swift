@@ -28,6 +28,7 @@ class LocationManager: NSObject {
     public func fetchLocation(completion: @escaping FetchLocationCompletion) {
         self.completion = completion
         locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
     }
     
 }

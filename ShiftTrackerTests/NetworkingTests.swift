@@ -59,11 +59,11 @@ class NetworkingTests: XCTestCase {
         
         sessionManager
             .request(APIRouter.shiftStart(event: Shift.Event(time: Date(), latitude: 0.1, longitude: 0.1)))
-            .responseData { (response) in
+            .responseString(completionHandler: { response in
                 print(response as Any)
-                XCTAssertNotNil(response.value)
+                XCTAssertEqual(response.value, "\"Start shift - All good\"")
                 expectation.fulfill()
-        }
+            })
         
         wait(for: [expectation], timeout: timeout)
     }
@@ -75,11 +75,11 @@ class NetworkingTests: XCTestCase {
         
         sessionManager
             .request(APIRouter.shiftEnd(event: Shift.Event(time: Date(), latitude: 0.1, longitude: 0.1)))
-            .responseData { (response) in
+            .responseString(completionHandler: { response in
                 print(response as Any)
-                XCTAssertNotNil(response.value)
+                XCTAssertEqual(response.value, "\"End shift - All good\"")
                 expectation.fulfill()
-        }
+            })
         
         wait(for: [expectation], timeout: timeout)
     }
