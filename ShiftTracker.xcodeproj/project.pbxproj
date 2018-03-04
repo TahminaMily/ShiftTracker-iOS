@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3010F60A204BC46B00799C78 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F609204BC46B00799C78 /* AuthManager.swift */; };
+		3010F60C204C14AE00799C78 /* ShiftListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F60B204C14AE00799C78 /* ShiftListViewController.swift */; };
+		3010F60E204C1E7900799C78 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010F60D204C1E7900799C78 /* DataSource.swift */; };
 		30AC0C6E204B78C00030C396 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AC0C6D204B78C00030C396 /* AppDelegate.swift */; };
 		30AC0C70204B78C00030C396 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AC0C6F204B78C00030C396 /* LoginViewController.swift */; };
 		30AC0C73204B78C00030C396 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30AC0C71204B78C00030C396 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 /* Begin PBXFileReference section */
 		120F166F69CDE012C4446406 /* Pods-ShiftTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShiftTrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShiftTrackerTests/Pods-ShiftTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3010F609204BC46B00799C78 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		3010F60B204C14AE00799C78 /* ShiftListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftListViewController.swift; sourceTree = "<group>"; };
+		3010F60D204C1E7900799C78 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		30AC0C6A204B78C00030C396 /* ShiftTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShiftTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30AC0C6D204B78C00030C396 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30AC0C6F204B78C00030C396 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 			children = (
 				30AC0C6D204B78C00030C396 /* AppDelegate.swift */,
 				30AC0C6F204B78C00030C396 /* LoginViewController.swift */,
+				3010F60B204C14AE00799C78 /* ShiftListViewController.swift */,
 				30AC0C71204B78C00030C396 /* Main.storyboard */,
 				30AC0C74204B78C00030C396 /* Assets.xcassets */,
 				30AC0C76204B78C00030C396 /* LaunchScreen.storyboard */,
@@ -106,6 +111,7 @@
 				30C66926204B7A8900D5AA8D /* APIRouter.swift */,
 				30C66928204B83F200D5AA8D /* Models.swift */,
 				3010F609204BC46B00799C78 /* AuthManager.swift */,
+				3010F60D204C1E7900799C78 /* DataSource.swift */,
 			);
 			path = ShiftTracker;
 			sourceTree = "<group>";
@@ -355,11 +361,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3010F60E204C1E7900799C78 /* DataSource.swift in Sources */,
 				3010F60A204BC46B00799C78 /* AuthManager.swift in Sources */,
 				30AC0C70204B78C00030C396 /* LoginViewController.swift in Sources */,
 				30C66927204B7A8900D5AA8D /* APIRouter.swift in Sources */,
 				30AC0C6E204B78C00030C396 /* AppDelegate.swift in Sources */,
 				30C66929204B83F200D5AA8D /* Models.swift in Sources */,
+				3010F60C204C14AE00799C78 /* ShiftListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
