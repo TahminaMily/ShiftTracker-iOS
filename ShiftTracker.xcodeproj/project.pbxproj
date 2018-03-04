@@ -15,6 +15,7 @@
 		30AC0C83204B78C10030C396 /* ShiftTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AC0C82204B78C10030C396 /* ShiftTrackerTests.swift */; };
 		30C66927204B7A8900D5AA8D /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C66926204B7A8900D5AA8D /* APIRouter.swift */; };
 		30C66929204B83F200D5AA8D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C66928204B83F200D5AA8D /* Models.swift */; };
+		30C6692B204B887800D5AA8D /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C6692A204B887800D5AA8D /* NetworkingTests.swift */; };
 		70AD08DD35CAF411E9F90814 /* Pods_ShiftTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B835EC9DA9FD39A0E745C90 /* Pods_ShiftTracker.framework */; };
 		F826855532A0CB9D46651B74 /* Pods_ShiftTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F3DE121F1DBF13B64E1DD9 /* Pods_ShiftTrackerTests.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		30AC0C84204B78C10030C396 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30C66926204B7A8900D5AA8D /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		30C66928204B83F200D5AA8D /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		30C6692A204B887800D5AA8D /* NetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTests.swift; sourceTree = "<group>"; };
 		54F3DE121F1DBF13B64E1DD9 /* Pods_ShiftTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShiftTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B835EC9DA9FD39A0E745C90 /* Pods_ShiftTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShiftTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78B60E56F7E408A17F9152B9 /* Pods-ShiftTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShiftTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShiftTracker/Pods-ShiftTracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			children = (
 				30AC0C82204B78C10030C396 /* ShiftTrackerTests.swift */,
 				30AC0C84204B78C10030C396 /* Info.plist */,
+				30C6692A204B887800D5AA8D /* NetworkingTests.swift */,
 			);
 			path = ShiftTrackerTests;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30AC0C83204B78C10030C396 /* ShiftTrackerTests.swift in Sources */,
+				30C6692B204B887800D5AA8D /* NetworkingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
