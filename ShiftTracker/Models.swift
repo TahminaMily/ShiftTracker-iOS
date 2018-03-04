@@ -38,6 +38,11 @@ extension Shift {
             case longitude
         }
         
+        public init(time: Date, latitude: Double, longitude: Double) {
+            self.time = time
+            self.latitude = latitude
+            self.longitude = longitude
+        }
         
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -50,8 +55,7 @@ extension Shift {
                 else {
                     throw DecodingError.typeMismatch(Double.self, DecodingError.Context(codingPath: [CodingKeys.latitude], debugDescription: "??"))
             }
-            
-            
+
             self.latitude = latitude
             self.longitude = longitude
         }

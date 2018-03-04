@@ -12,24 +12,20 @@ import Alamofire
 
 class NetworkingTests: XCTestCase {
     
+    let username = "SteveJobs"
+    let timeout = 30.0
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
 
     func testGetBusiness() {
         let expectation = XCTestExpectation(description: "Fetch Business Info")
-        
         
         Alamofire.request(APIRouter.business).responseObject { (response: DataResponse<Business>) in
             print(response.value as Any)
@@ -38,7 +34,54 @@ class NetworkingTests: XCTestCase {
             expectation.fulfill()
         }
         
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: timeout)
+    }
+    
+    func testGetShifts() {
+        let expectation = XCTestExpectation(description: "Fetch Shift list")
+        let sessionManager = APIRouter.sessionManager
+        sessionManager.adapter = DeputyAuthAdapter(username: username)
+        
+        sessionManager.request(APIRouter.shifts).responseObject { (response: DataResponse<[Shift]>) in
+            print(response.value as Any)
+            XCTAssertNotNil(response.value)
+            
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: timeout)
+    }
+    
+    func testStartShift() {
+        let expectation = XCTestExpectation(description: "Start shift")
+        let sessionManager = APIRouter.sessionManager
+        sessionManager.adapter = DeputyAuthAdapter(username: username)
+        
+        sessionManager
+            .request(APIRouter.shiftStart(event: Shift.Event(time: Date(), latitude: 0.1, longitude: 0.1)))
+            .responseData { (response) in
+                print(response as Any)
+                XCTAssertNotNil(response.value)
+                expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: timeout)
+    }
+    
+    func testEndShift() {
+        let expectation = XCTestExpectation(description: "End Shift")
+        let sessionManager = APIRouter.sessionManager
+        sessionManager.adapter = DeputyAuthAdapter(username: username)
+        
+        sessionManager
+            .request(APIRouter.shiftEnd(event: Shift.Event(time: Date(), latitude: 0.1, longitude: 0.1)))
+            .responseData { (response) in
+                print(response as Any)
+                XCTAssertNotNil(response.value)
+                expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: timeout)
     }
     
 }

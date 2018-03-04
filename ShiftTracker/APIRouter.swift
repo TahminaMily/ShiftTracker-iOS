@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import CryptoSwift
 
 
 enum APIRouter: URLRequestConvertible {
@@ -17,6 +18,25 @@ enum APIRouter: URLRequestConvertible {
     case shifts
     
     static let baseURLString = "https://apjoqdqpi3.execute-api.us-west-2.amazonaws.com/dmc"
+    
+    public static var sessionManager = SessionManager()
+    
+    static let decoder: JSONDecoder = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssXXXXX"
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(dateFormatter)
+        return decoder
+    }()
+    
+    static let encoder: JSONEncoder = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssXXXXX"
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .formatted(dateFormatter)
+        return encoder
+    }()
+    
     var method: HTTPMethod {
         switch self {
         case .business: return .get
@@ -47,7 +67,7 @@ enum APIRouter: URLRequestConvertible {
         case .shiftStart(let event):
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: event.dictionary)
         case .shiftEnd(let event):
-            urlRequest = try URLEncoding.default.encode(urlRequest, with: event.dictionary)
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: event.dictionary)
         case .shifts:
             break
         }
@@ -64,7 +84,7 @@ enum APIError: Error {
 
 extension Encodable {
     var dictionary: [String: Any]? {
-        guard let data = try? JSONEncoder().encode(self) else { return nil }
+        guard let data = try? APIRouter.encoder.encode(self) else { return nil }
         return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] }
     }
 }
@@ -82,10 +102,15 @@ public extension DataRequest {
                 return .failure(APIError.network(error: error))
             }
             
-            guard let data = data else {
+            guard var data = data else {
                 return .failure(APIError.noData)
             }
             
+            //Whoa!!! Fix the backend please
+            if data == "null".data(using: .utf8) {
+                data = "[]".data(using: .utf8)!
+            }
+
             do {
                 let responseObject = try decoder.decode(T.self, from: data)
                 return .success(responseObject)
@@ -95,5 +120,23 @@ public extension DataRequest {
         }
         
         return response(queue: queue, responseSerializer: responseSerializer, completionHandler: completionHandler)
+    }
+}
+
+class DeputyAuthAdapter: RequestAdapter {
+    private let accessToken: String
+    
+    init(username: String) {
+        self.accessToken = username.sha1()
+    }
+    
+    func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
+        var urlRequest = urlRequest
+        
+        if let urlString = urlRequest.url?.absoluteString, urlString.hasPrefix(APIRouter.baseURLString) {
+            urlRequest.setValue("Deputy " + accessToken, forHTTPHeaderField: "Authorization")
+        }
+        
+        return urlRequest
     }
 }
