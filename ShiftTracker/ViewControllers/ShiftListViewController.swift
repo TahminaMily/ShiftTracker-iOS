@@ -28,30 +28,31 @@ class ShiftListViewController: UIViewController {
     }
     
     func loadData() {
+        showSpinner()
         dataSource.fetchShifts { [weak self] result in
-            DispatchQueue.main.async {
-                guard let this = self else { return }
+            guard let this = self else { return }
 
-                guard let shifts = result.value else {
-                    return this.show(error: result.error ?? "Could not fetch shifts")
-                }
-
-                this.shifts = shifts
-                this.collectionView.reloadData()
-                
-                // see if there is a running shift
-                if shifts.first(where: { $0.isRunning }) == nil {
-                    this.barButtonItem.title = Constants.BarButtonTitle.start
-                } else {
-                    this.barButtonItem.title = Constants.BarButtonTitle.end
-                }
-                this.barButtonItem.isEnabled = true
+            this.hideSpinner()
+            guard let shifts = result.value else {
+                return this.show(error: result.error ?? "Could not fetch shifts")
             }
+
+            this.shifts = shifts.sorted(by: { $0.start > $1.start })
+            this.collectionView.reloadData()
+
+            // see if there is a running shift
+            if shifts.first(where: { $0.isRunning }) == nil {
+                this.barButtonItem.title = Constants.BarButtonTitle.start
+            } else {
+                this.barButtonItem.title = Constants.BarButtonTitle.end
+            }
+            this.barButtonItem.isEnabled = true
         }
     }
     
     @IBAction func dtdTapBarButtonItem(_ sender: UIBarButtonItem) {
         sender.isEnabled = false
+        showSpinner()
         LocationManager.shared.fetchLocation { [weak self] location, error in
             guard let coordinate = location?.coordinate else { return }
             
@@ -67,6 +68,7 @@ class ShiftListViewController: UIViewController {
                 .responseData(completionHandler: { (response) in
                     guard let this = self else { return }
                     this.loadData()
+                    this.hideSpinner()
                 })
         }
     }

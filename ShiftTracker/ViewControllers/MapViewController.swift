@@ -20,17 +20,17 @@ class MapViewController: UIViewController {
     }
 
     func loadData() {
+        showSpinner()
         dataSource.fetchShifts { [weak self] result in
-            DispatchQueue.main.async {
-                guard let this = self else { return }
+            guard let this = self else { return }
 
-                guard let shifts = result.value else {
-                    return this.show(error: result.error ?? "Could not fetch shifts")
-                }
-	
-                shifts.forEach { this.mapView.add(shift: $0) }
-                this.mapView.fitAllAnnotations()
+            this.hideSpinner()
+            guard let shifts = result.value else {
+                return this.show(error: result.error ?? "Could not fetch shifts")
             }
+
+            shifts.forEach { this.mapView.add(shift: $0) }
+            this.mapView.fitAllAnnotations()
         }
     }
 }

@@ -14,7 +14,8 @@ class ShiftCell: UICollectionViewCell {
     @IBOutlet var durationLabel: UILabel!
 
     func configure(shift: Shift) {
-        imageView.kf.setImage(with: shift.uncachedImageURL)
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(with: shift.uncachedImageURL, options: [.transition(.fade(0.2))])
 
         startTimeLabel.text = Formatters.displayDateFormatter.string(for: shift.startEvent?.time)
         if let startTime = shift.startEvent?.time, let endTime = shift.endEvent?.time {

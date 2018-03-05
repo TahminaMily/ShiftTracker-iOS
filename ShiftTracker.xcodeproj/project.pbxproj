@@ -21,10 +21,9 @@
 		30AC0C73204B78C00030C396 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30AC0C71204B78C00030C396 /* Main.storyboard */; };
 		30AC0C75204B78C00030C396 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30AC0C74204B78C00030C396 /* Assets.xcassets */; };
 		30AC0C78204B78C00030C396 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30AC0C76204B78C00030C396 /* LaunchScreen.storyboard */; };
-		30AC0C83204B78C10030C396 /* ShiftTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AC0C82204B78C10030C396 /* ShiftTrackerTests.swift */; };
 		30C6692B204B887800D5AA8D /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C6692A204B887800D5AA8D /* NetworkingTests.swift */; };
 		371F0FD1204CB3E2002648AF /* ShiftDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371F0FD0204CB3E2002648AF /* ShiftDetailViewController.swift */; };
-		371F0FD3204CB5A4002648AF /* UIViewController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371F0FD2204CB5A4002648AF /* UIViewController+Error.swift */; };
+		371F0FD3204CB5A4002648AF /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371F0FD2204CB5A4002648AF /* UIViewController+Extensions.swift */; };
 		371F0FD7204CE8F8002648AF /* MapKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371F0FD6204CE8F8002648AF /* MapKit+Extensions.swift */; };
 		371F0FD9204CF757002648AF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371F0FD8204CF757002648AF /* MapViewController.swift */; };
 		371F0FDB204D52DC002648AF /* DeputyAuthAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371F0FDA204D52DC002648AF /* DeputyAuthAdapter.swift */; };
@@ -63,11 +62,10 @@
 		30AC0C77204B78C00030C396 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30AC0C79204B78C10030C396 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30AC0C7E204B78C10030C396 /* ShiftTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShiftTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		30AC0C82204B78C10030C396 /* ShiftTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftTrackerTests.swift; sourceTree = "<group>"; };
 		30AC0C84204B78C10030C396 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30C6692A204B887800D5AA8D /* NetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTests.swift; sourceTree = "<group>"; };
 		371F0FD0204CB3E2002648AF /* ShiftDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftDetailViewController.swift; sourceTree = "<group>"; };
-		371F0FD2204CB5A4002648AF /* UIViewController+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Error.swift"; sourceTree = "<group>"; };
+		371F0FD2204CB5A4002648AF /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		371F0FD6204CE8F8002648AF /* MapKit+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapKit+Extensions.swift"; sourceTree = "<group>"; };
 		371F0FD8204CF757002648AF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		371F0FDA204D52DC002648AF /* DeputyAuthAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeputyAuthAdapter.swift; sourceTree = "<group>"; };
@@ -133,7 +131,7 @@
 				3010F61F204C37B200799C78 /* URL+Extensions.swift */,
 				3010F620204C37B200799C78 /* Formatters.swift */,
 				3010F62A204C42C200799C78 /* String+Error.swift */,
-				371F0FD2204CB5A4002648AF /* UIViewController+Error.swift */,
+				371F0FD2204CB5A4002648AF /* UIViewController+Extensions.swift */,
 				371F0FD6204CE8F8002648AF /* MapKit+Extensions.swift */,
 				371F0FDC204D53AD002648AF /* Alamofire+Codable.swift */,
 			);
@@ -174,12 +172,12 @@
 		30AC0C6C204B78C00030C396 /* ShiftTracker */ = {
 			isa = PBXGroup;
 			children = (
-				371F0FDE204D5719002648AF /* Cells */,
 				3010F623204C37BA00799C78 /* ViewControllers */,
-				3010F61E204C37B200799C78 /* Utility */,
 				3010F61B204C37AB00799C78 /* Networking */,
 				3010F618204C379F00799C78 /* Models */,
 				3010F613204C379700799C78 /* Managers */,
+				371F0FDE204D5719002648AF /* Cells */,
+				3010F61E204C37B200799C78 /* Utility */,
 				30AC0C6D204B78C00030C396 /* AppDelegate.swift */,
 				30AC0C71204B78C00030C396 /* Main.storyboard */,
 				30AC0C74204B78C00030C396 /* Assets.xcassets */,
@@ -192,7 +190,6 @@
 		30AC0C81204B78C10030C396 /* ShiftTrackerTests */ = {
 			isa = PBXGroup;
 			children = (
-				30AC0C82204B78C10030C396 /* ShiftTrackerTests.swift */,
 				30AC0C84204B78C10030C396 /* Info.plist */,
 				30C6692A204B887800D5AA8D /* NetworkingTests.swift */,
 			);
@@ -456,7 +453,7 @@
 				3010F616204C379700799C78 /* AuthManager.swift in Sources */,
 				3010F61A204C379F00799C78 /* Models.swift in Sources */,
 				371F0FD7204CE8F8002648AF /* MapKit+Extensions.swift in Sources */,
-				371F0FD3204CB5A4002648AF /* UIViewController+Error.swift in Sources */,
+				371F0FD3204CB5A4002648AF /* UIViewController+Extensions.swift in Sources */,
 				371F0FD1204CB3E2002648AF /* ShiftDetailViewController.swift in Sources */,
 				3010F622204C37B200799C78 /* Formatters.swift in Sources */,
 				371F0FD9204CF757002648AF /* MapViewController.swift in Sources */,
@@ -467,7 +464,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30AC0C83204B78C10030C396 /* ShiftTrackerTests.swift in Sources */,
 				30C6692B204B887800D5AA8D /* NetworkingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

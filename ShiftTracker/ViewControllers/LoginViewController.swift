@@ -20,7 +20,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        showSpinner()
         datasource.fetchBusiness { [weak self] result in
+            self?.hideSpinner()
             guard let this = self, let business = result.value else {
                 self?.show(error: result.error ?? "Could not fetch business")
                 return

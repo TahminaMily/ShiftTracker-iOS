@@ -30,7 +30,6 @@ class LocationManager: NSObject {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
     }
-    
 }
 
 extension LocationManager: CLLocationManagerDelegate {

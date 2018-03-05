@@ -24,7 +24,7 @@ class NetworkingTests: XCTestCase {
         super.tearDown()
     }
 
-    func testGetBusiness() {
+    func test0GetBusiness() {
         let expectation = XCTestExpectation(description: "Fetch Business Info")
         
         Alamofire.request(APIRouter.business).responseObject { (response: DataResponse<Business>) in
@@ -37,7 +37,7 @@ class NetworkingTests: XCTestCase {
         wait(for: [expectation], timeout: timeout)
     }
     
-    func testGetShifts() {
+    func test1GetShifts() {
         let expectation = XCTestExpectation(description: "Fetch Shift list")
         let sessionManager = APIRouter.sessionManager
         sessionManager.adapter = DeputyAuthAdapter(username: username)
@@ -52,7 +52,7 @@ class NetworkingTests: XCTestCase {
         wait(for: [expectation], timeout: timeout)
     }
     
-    func testStartShift() {
+    func test2StartShift() {
         let expectation = XCTestExpectation(description: "Start shift")
         let sessionManager = APIRouter.sessionManager
         sessionManager.adapter = DeputyAuthAdapter(username: username)
@@ -68,7 +68,7 @@ class NetworkingTests: XCTestCase {
         wait(for: [expectation], timeout: timeout)
     }
     
-    func testEndShift() {
+    func test3EndShift() {
         let expectation = XCTestExpectation(description: "End Shift")
         let sessionManager = APIRouter.sessionManager
         sessionManager.adapter = DeputyAuthAdapter(username: username)
