@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import CryptoSwift
 
 
 enum APIRouter: URLRequestConvertible {
@@ -58,13 +57,11 @@ enum APIRouter: URLRequestConvertible {
         urlRequest.httpMethod = method.rawValue
         
         switch self {
-        case .business:
-            break
         case .shiftStart(let event):
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: event.dictionary)
         case .shiftEnd(let event):
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: event.dictionary)
-        case .shifts:
+        case .business, .shifts:
             break
         }
         
@@ -78,61 +75,9 @@ enum APIError: Error {
     case jsonSerialization(error: Error)
 }
 
-extension Encodable {
+private extension Encodable {
     var dictionary: [String: Any]? {
         guard let data = try? APIRouter.encoder.encode(self) else { return nil }
         return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] }
-    }
-}
-
-public extension DataRequest {
-    @discardableResult
-    func responseObject<T: Decodable>(
-        queue: DispatchQueue? = nil,
-        decoder: JSONDecoder = JSONDecoder(),
-        completionHandler: @escaping (DataResponse<T>) -> Void)
-        -> Self
-    {
-        let responseSerializer = DataResponseSerializer<T> { request, response, data, error in
-            if let error = error {
-                return .failure(APIError.network(error: error))
-            }
-            
-            guard var data = data else {
-                return .failure(APIError.noData)
-            }
-            
-            //Whoa!!! Fix the backend please
-            if data == "null".data(using: .utf8) {
-                data = "[]".data(using: .utf8)!
-            }
-
-            do {
-                let responseObject = try decoder.decode(T.self, from: data)
-                return .success(responseObject)
-            } catch {
-                return .failure(APIError.jsonSerialization(error: error))
-            }
-        }
-        
-        return response(queue: queue, responseSerializer: responseSerializer, completionHandler: completionHandler)
-    }
-}
-
-class DeputyAuthAdapter: RequestAdapter {
-    private let accessToken: String
-    
-    init(username: String) {
-        self.accessToken = username.sha1()
-    }
-    
-    func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
-        var urlRequest = urlRequest
-        
-        if let urlString = urlRequest.url?.absoluteString, urlString.hasPrefix(APIRouter.baseURLString) {
-            urlRequest.setValue("Deputy " + accessToken, forHTTPHeaderField: "Authorization")
-        }
-        
-        return urlRequest
     }
 }

@@ -13,7 +13,7 @@ class ShiftListViewController: UIViewController {
     @IBOutlet var barButtonItem: UIBarButtonItem!
     @IBOutlet var collectionView: UICollectionView!
     var shifts: [Shift] = []
-    let dataSource = DateSource()
+    let dataSource = DataSource()
     
     private enum Constants {
         enum BarButtonTitle {
@@ -42,11 +42,10 @@ class ShiftListViewController: UIViewController {
                 // see if there is a running shift
                 if shifts.first(where: { $0.isRunning }) == nil {
                     this.barButtonItem.title = Constants.BarButtonTitle.start
-                    this.barButtonItem.isEnabled = true
                 } else {
                     this.barButtonItem.title = Constants.BarButtonTitle.end
-                    this.barButtonItem.isEnabled = true
                 }
+                this.barButtonItem.isEnabled = true
             }
         }
     }

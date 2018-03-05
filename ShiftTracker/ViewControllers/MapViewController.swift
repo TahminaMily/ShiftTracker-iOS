@@ -11,7 +11,7 @@ import MapKit
 
 class MapViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
-    let dataSource = DateSource()
+    let dataSource = DataSource()
 
     override func viewDidLoad() {
         super.viewDidLoad()

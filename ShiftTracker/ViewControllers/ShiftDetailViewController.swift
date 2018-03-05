@@ -26,7 +26,7 @@ class ShiftDetailViewController: UIViewController {
     }
 
     func configure(shift: Shift) {
-        imageView.kf.setImage(with: shift.image)
+        imageView.kf.setImage(with: shift.uncachedImageURL)
         startLabel.text = Formatters.displayDateFormatter.string(for: shift.startEvent?.time).flatMap { "Started: " + $0 }
         endLabel.text = Formatters.displayDateFormatter.string(for: shift.endEvent?.time).flatMap { "Ended: " + $0 } ?? "Current Shift"
 

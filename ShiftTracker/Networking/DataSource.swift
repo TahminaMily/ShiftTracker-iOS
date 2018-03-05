@@ -9,12 +9,12 @@
 import Foundation
 import Alamofire
 
-class DateSource {
+class DataSource {
     func fetchBusiness(completion: @escaping (Result<Business>) -> Void) {
         APIRouter.sessionManager
             .request(APIRouter.business)
             .responseObject { (response: DataResponse<Business>) in
-                completion(response.result)
+                DispatchQueue.main.async { completion(response.result) }
             }
     }
     
@@ -22,7 +22,7 @@ class DateSource {
         APIRouter.sessionManager
             .request(APIRouter.shifts)
             .responseObject { (response: DataResponse<[Shift]>) in
-                completion(response.result)
+                DispatchQueue.main.async { completion(response.result) }
             }
     }
 

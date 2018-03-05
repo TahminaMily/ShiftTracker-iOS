@@ -15,15 +15,18 @@ class LoginViewController: UIViewController {
     @IBOutlet var businessNameLabel: UILabel!
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
+    let datasource = DataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        APIRouter.sessionManager.request(APIRouter.business).responseObject { [weak self] (response: DataResponse<Business>) in
-            DispatchQueue.main.async {
-                guard let this = self, let business = response.value else { return }
-                this.logoImageView.kf.setImage(with: business.logo)
-                this.businessNameLabel.text = business.name
+
+        datasource.fetchBusiness { [weak self] result in
+            guard let this = self, let business = result.value else {
+                self?.show(error: result.error ?? "Could not fetch business")
+                return
             }
+            this.logoImageView.kf.setImage(with: business.logo)
+            this.businessNameLabel.text = business.name
         }
     }
     

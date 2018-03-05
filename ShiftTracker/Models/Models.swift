@@ -99,7 +99,7 @@ extension Shift {
         return startEvent != nil && endEvent == nil
     }
 
-    public var uncachedImage: URL {
+    public var uncachedImageURL: URL {
         return image.addOrUpdateQueryStringParameter(key: "key", value: String(id))
     }
 }
