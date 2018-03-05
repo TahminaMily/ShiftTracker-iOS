@@ -28,9 +28,14 @@ class ShiftListViewController: UIViewController {
     }
     
     func loadData() {
-        dataSource.fetchShifts { [weak self] shifts in
+        dataSource.fetchShifts { [weak self] result in
             DispatchQueue.main.async {
-                guard let this = self, let shifts = shifts else { return }
+                guard let this = self else { return }
+
+                guard let shifts = result.value else {
+                    return this.show(error: result.error ?? "Could not fetch shifts")
+                }
+
                 this.shifts = shifts
                 this.collectionView.reloadData()
                 
@@ -49,9 +54,9 @@ class ShiftListViewController: UIViewController {
     @IBAction func dtdTapBarButtonItem(_ sender: UIBarButtonItem) {
         sender.isEnabled = false
         LocationManager.shared.fetchLocation { [weak self] location, error in
-            guard let location = location else { return }
+            guard let coordinate = location?.coordinate else { return }
             
-            let event = Shift.Event(time: Date(), latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            let event = Shift.Event(time: Date(), latitude: coordinate.latitude, longitude: coordinate.longitude)
             let route: APIRouter
             switch self?.barButtonItem.title {
             case Constants.BarButtonTitle.end?:
@@ -82,41 +87,19 @@ extension ShiftListViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let screenSize = UIScreen.main.bounds.size
-        let columns: CGFloat
-        if traitCollection.horizontalSizeClass == .regular {
-            columns = 3.0
-        } else {
-            columns = 2.0
-        }
+        let screenSize = collectionView.bounds.size
+        let columns: CGFloat = (traitCollection.horizontalSizeClass == .compact) ? 2.0 : 3.0
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         let width: CGFloat = (screenSize.width - layout.sectionInset.left - layout.sectionInset.right - layout.minimumInteritemSpacing * columns)/columns
         let height: CGFloat = width + 50
         
         return CGSize(width: width, height: height)
     }
-}
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: "ShiftDetailViewController") as? ShiftDetailViewController else { return }
 
-class ShiftCell: UICollectionViewCell {
-    @IBOutlet var imageView: UIImageView!
-    @IBOutlet var startTimeLabel: UILabel!
-    @IBOutlet var durationLabel: UILabel!
-    
-    func configure(shift: Shift) {
-        let url = shift.image.addOrUpdateQueryStringParameter(key: "key", value: UUID().uuidString)
-        imageView.kf.setImage(with: url)
-        
-        startTimeLabel.text = Formatters.displayDateFormatter.string(for: shift.startEvent?.time)
-        if let startTime = shift.startEvent?.time, let endTime = shift.endEvent?.time {
-            durationLabel.text = Formatters.dateComponentFormatter.string(from: startTime, to: endTime)
-        } else {
-            durationLabel.text = "ongoing..."
-        }
-        
-    }
-    
-    override func prepareForReuse() {
-        imageView.kf.cancelDownloadTask()
+        detailViewController.shift = shifts[indexPath.row]
+        self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

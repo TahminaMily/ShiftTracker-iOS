@@ -80,6 +80,10 @@ extension Shift.Event {
         
         self.init(time: date, latitude: latitude, longitude: longitude)
     }
+
+    var location: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
 }
 
 extension Shift {
@@ -93,5 +97,9 @@ extension Shift {
     
     public var isRunning: Bool {
         return startEvent != nil && endEvent == nil
+    }
+
+    public var uncachedImage: URL {
+        return image.addOrUpdateQueryStringParameter(key: "key", value: String(id))
     }
 }

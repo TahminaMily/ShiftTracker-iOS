@@ -8,6 +8,7 @@
 
 import Foundation
 
+//copied from stackoverflow
 extension URL {
     public func addOrUpdateQueryStringParameter(key: String, value: String?) -> URL {
         if var components = URLComponents(url: self, resolvingAgainstBaseURL: true) {

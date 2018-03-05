@@ -77,14 +77,32 @@
         <!--Map-->
         <scene sceneID="T1r-g7-wNY">
             <objects>
-                <viewController id="YwY-Wc-SoZ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YwY-Wc-SoZ" customClass="MapViewController" customModule="ShiftTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pmJ-97-fN4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ioL-Jo-kOJ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <connections>
+                                    <outlet property="delegate" destination="YwY-Wc-SoZ" id="uMg-xg-hgv"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Y6Z-fL-qLw" firstAttribute="bottom" secondItem="ioL-Jo-kOJ" secondAttribute="bottom" id="8dL-lv-XVP"/>
+                            <constraint firstItem="ioL-Jo-kOJ" firstAttribute="top" secondItem="Y6Z-fL-qLw" secondAttribute="top" id="IHB-V0-lN9"/>
+                            <constraint firstItem="ioL-Jo-kOJ" firstAttribute="leading" secondItem="Y6Z-fL-qLw" secondAttribute="leading" id="cd3-43-lgF"/>
+                            <constraint firstItem="Y6Z-fL-qLw" firstAttribute="trailing" secondItem="ioL-Jo-kOJ" secondAttribute="trailing" id="kOl-0b-rCl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Y6Z-fL-qLw"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Map" id="3c4-cA-qhe"/>
+                    <connections>
+                        <outlet property="mapView" destination="ioL-Jo-kOJ" id="c6b-sF-2ZA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kMj-3d-5GL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -183,6 +201,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EBr-f2-Faq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2688.8000000000002" y="-388.15592203898052"/>
+        </scene>
+        <!--Shift Detail View Controller-->
+        <scene sceneID="DmH-WT-Gi8">
+            <objects>
+                <viewController storyboardIdentifier="ShiftDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fHA-cT-o6J" customClass="ShiftDetailViewController" customModule="ShiftTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rbJ-hD-cmB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TrL-vs-ong">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="281.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="TrL-vs-ong" secondAttribute="height" multiplier="4:3" id="oU6-nF-DtN"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="fHA-cT-o6J" id="DzB-C2-v6b"/>
+                                </connections>
+                            </mapView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cz9-z4-X5e">
+                                <rect key="frame" x="20" y="301.5" width="335" height="100"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9yi-uz-WsP">
+                                        <rect key="frame" x="0.0" y="0.0" width="235" height="100"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uag-uV-NIZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjG-xD-DTq">
+                                                <rect key="frame" x="0.0" y="50" width="0.0" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c2q-PA-PN7">
+                                        <rect key="frame" x="235" y="0.0" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="Eis-fp-7tH"/>
+                                            <constraint firstAttribute="width" secondItem="c2q-PA-PN7" secondAttribute="height" multiplier="1:1" id="UFu-Uw-dg3"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ddS-vG-qxP" firstAttribute="trailing" secondItem="cz9-z4-X5e" secondAttribute="trailing" constant="20" id="996-Tv-I9r"/>
+                            <constraint firstItem="cz9-z4-X5e" firstAttribute="leading" secondItem="ddS-vG-qxP" secondAttribute="leading" constant="20" id="A0O-sc-lPs"/>
+                            <constraint firstItem="TrL-vs-ong" firstAttribute="leading" secondItem="ddS-vG-qxP" secondAttribute="leading" id="CYq-lR-FcP"/>
+                            <constraint firstItem="cz9-z4-X5e" firstAttribute="top" secondItem="TrL-vs-ong" secondAttribute="bottom" constant="20" id="KbO-LB-nD2"/>
+                            <constraint firstItem="TrL-vs-ong" firstAttribute="top" secondItem="rbJ-hD-cmB" secondAttribute="top" id="gMf-I0-GV4"/>
+                            <constraint firstItem="TrL-vs-ong" firstAttribute="trailing" secondItem="ddS-vG-qxP" secondAttribute="trailing" id="uuU-kI-DlO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ddS-vG-qxP"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="endLabel" destination="mjG-xD-DTq" id="DJm-eY-XUj"/>
+                        <outlet property="imageView" destination="c2q-PA-PN7" id="oyk-hu-19R"/>
+                        <outlet property="mapView" destination="TrL-vs-ong" id="xVp-rr-efv"/>
+                        <outlet property="startLabel" destination="uag-uV-NIZ" id="IJq-KN-VJo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RQp-gQ-GSC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3615.1999999999998" y="-388.15592203898052"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="VuE-oN-dhX">
